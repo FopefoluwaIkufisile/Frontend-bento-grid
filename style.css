@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+
+/* Global Styles */
 * {
   margin: 0;
   padding: 0;
@@ -5,155 +8,330 @@
 }
 
 :root {
-  --Purple-100: hsl(254, 88%, 90%);
-  --Purple-500: hsl(256, 67%, 59%);
-  --Yellow-100: hsl(31, 66%, 93%);
-  --Yellow-500: hsl(39, 100%, 71%);
-  --White: hsl(0, 0%, 100%);
-  --Black: hsl(0, 0%, 7%);
+  --purple-100: hsl(254, 88%, 90%);
+  --purple-500: hsl(256, 67%, 59%);
+  --yellow-100: hsl(31, 66%, 93%);
+  --yellow-500: hsl(39, 100%, 71%);
+  --white: hsl(0, 0%, 100%);
+  --black: hsl(0, 0%, 7%);
 }
 
 body {
+  font-family: "DM Sans", sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: var(--White);
-  font-family: sans-serif;
-}
-.grid-container {
-  display: grid;
-  grid-template: repeat(5, 1fr) / repeat(4, 1fr);
-  gap: 25px;
-  margin: 20px auto;
-  width: 100%;
-  max-width: 80%;
-  max-height: 80%;
-}
-.cont {
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-}
-.main-text {
-  font-size: 1.5rem;
-}
-.purple {
-  color: var(--Purple-500);
-}
-.yellow {
-  color: var(--Yellow-500);
+  padding: 0 20px;
 }
 
-.create {
-  grid-area: 1 / 1 / 3 / 2;
-  background-color: var(--Yellow-100);
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.create-img {
-  width: 150px;
-}
-.social {
-  grid-area: 1 / 2 / 2 / 4;
-  background-color: var(--Purple-500);
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-.social p:first-of-type {
-  font-size: 2.3rem;
-}
-.social p {
-  color: white;
-}
-.social-img {
-  width: 200px;
-}
-.schedule {
-  grid-area: 1 / 4 / 4 / 5;
-  background-color: var(--Purple-100);
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  overflow: hidden;
-}
-.schedule-img {
-  width: 400px;
-  height: 400px;
-}
-.write {
-  grid-area: 3 / 1 / 6 / 2;
-  background-color: var(--Yellow-500);
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-.write-img {
-  width: 200px;
-}
-.manage {
-  grid-area: 2 / 2 / 4 / 3;
-  background-color: var(--White);
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.manage-img {
-  width: 200px;
-}
-.maintain {
-  grid-area: 2 / 3 / 4 / 4;
-  background-color: var(--Yellow-500);
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-.big {
-  font-size: 2.9rem;
-}
-.maintain-img {
-  width: 200px;
-}
-.faster {
-  grid-area: 4 / 2 / 6 / 3;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-.faster-img {
-  width: 200px;
-}
-.grow {
-  grid-area: 4 / 3 / 6 / 5;
-  background-color: var(--Purple-500);
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row-reverse;
-}
-.grow p{
-  color: white;
-}
-.grow-img {
-  width: 250px;
-}
-
+/* Attribution Section */
 .attribution {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
   font-size: 11px;
   text-align: center;
-  position: fixed;
-  width: 100%;
-  padding: 10px 0;
-  bottom: 0;
 }
+
 .attribution a {
   color: hsl(228, 45%, 44%);
 }
-@media (max-width: 768px) {
-  .grid-container {
+
+/* Main Grid Layout */
+main {
+  display: grid;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  grid-template-rows: 4fr 1fr 2fr 3fr;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  height: 80vh;
+  grid-template-areas:
+    "create  social   social   schedule"
+    "create  manage   maintain schedule"
+    "write   manage   maintain schedule"
+    "write   faster   grow     grow";
+}
+
+/* Box Styling */
+.box {
+  border-radius: 10px;
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2);
+  padding: 10px 20px;
+  overflow: hidden;
+}
+
+/* Image Styling */
+.image-container {
+  width: 100px;
+}
+
+img {
+  width: 100%;
+}
+
+/* Section Styles */
+.create {
+  grid-area: create;
+  background-color: var(--yellow-100);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#create {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-top: 40px;
+}
+.create-image-container {
+  width: 100%;
+  align-self: center;
+  cursor: pointer;
+}
+
+.social {
+  grid-area: social;
+  background-color: var(--purple-500);
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#social {
+  font-size: 2.4rem;
+  font-weight: 500;
+}
+.star-img-container {
+  align-self: center;
+  width: 35%;
+}
+
+.gold {
+  color: var(--yellow-500);
+}
+#purple-colour {
+  color: var(--purple-500);
+}
+
+.manage {
+  grid-area: manage;
+}
+#manage {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+.manage-img-container {
+  width: 100%;
+  align-self: center;
+  cursor: pointer;
+}
+.manage-img {
+  width: 250px;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.maintain {
+  grid-area: maintain;
+  background-color: var(--yellow-500);
+  display: flex;
+  flex-direction: column;
+}
+#maintain {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+.maintain-image-container {
+  width: 100%;
+  align-self: center;
+  cursor: pointer;
+}
+.maintain-img {
+  width: 250px;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.schedule {
+  grid-area: schedule;
+  background-color: var(--purple-100);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px 0px 20px 30px;
+  position: relative;
+}
+#schedule {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+.schedule-image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.schedule-image {
+  width: 200px;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 1/1;
+  border-radius: 15px;
+}
+
+.grow {
+  background-color: var(--purple-500);
+  grid-area: grow;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  gap: 10px;
+}
+#grow {
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+.grow-image-container {
+  width: 100%;
+  align-self: center;
+  cursor: pointer;
+}
+.grow-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.faster {
+  grid-area: faster;
+  display: flex;
+  flex-direction: column;
+}
+.faster-image-container {
+  width: 90%;
+  align-self: center;
+  cursor: pointer;
+}
+.faster-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+.big {
+  font-size: 2.5rem;
+}
+
+.write {
+  grid-area: write;
+  background-color: var(--yellow-500);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+#write {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+.write-image-container {
+  width: 100%;
+  align-self: center;
+  cursor: pointer;
+}
+
+/* Media Queries */
+@media (max-width: 750px) {
+  main {
+    display: grid;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 4fr 1fr 2fr 3fr;
+    gap: 10px;
+    height: 80vh;
+  }
+}
+
+@media (max-width: 700px) {
+  main {
     display: flex;
     flex-direction: column;
+  }
+  .maintain {
+    gap: 10px;
+    position: relative;
+  }
+  .maintain-image-container {
+    width: 40%;
+    cursor: pointer;
+    align-self: flex-start;
+    overflow: hidden;
+    border-radius: 6px;
+  }
+  .schedule {
+    padding: 20px;
+    text-align: center;
+  }
+  .schedule-image-container {
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+  }
+  .schedule-image{
+    width: 100%;
+  }
+  .grow {
+    flex-direction: column;
+    text-align: center;
+  }
+  .grow-image-container {
+    width: 70%;
+    height: 100%;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  .faster {
+    gap: 10px;
+  }
+  .faster-image-container {
+    width: 40%;
+    height: 100%;
+    border-radius: 6px;
+    align-self: flex-start;
+    cursor: pointer;
+  }
+    .faster-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 6px;
+    }
+    .write-image-container {
+        width: 40%;
+        cursor: pointer;
+        align-self: flex-start;
+        overflow: hidden;
+        border-radius: 6px;
+    }
+    .create-image-container {
+        width: 40%;
+        cursor: pointer;
+        align-self: flex-start;
+        overflow: hidden;
+        border-radius: 6px;
+    }
+  .box{
+    overflow: visible;
   }
 }
